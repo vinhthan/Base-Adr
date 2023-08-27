@@ -32,10 +32,10 @@ abstract class BaseActivity<T: ViewDataBinding, M: BaseViewModel>: AppCompatActi
         binding.lifecycleOwner = this
         //val viewModelProvider = ViewModelProvider(this, viewModelFactory)
         //viewModel = ViewModelProvider(this, viewModelFactory)[viewModelClass()]
-        viewModel = BaseViewModel
+        //viewModel = BaseViewModel
 
         initView()
-        viewModel.viewState
+        //viewModel.viewState
 
 
 

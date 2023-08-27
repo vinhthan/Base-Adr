@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModels"
+            type="com.example.videoexoplayer.ui.main.MainViewModel" />
+    </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
