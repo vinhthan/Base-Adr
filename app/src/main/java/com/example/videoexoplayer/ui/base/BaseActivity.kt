@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 abstract class BaseActivity<T: ViewDataBinding, M: BaseViewModel>: AppCompatActivity() {
 
     protected lateinit var binding: T
-    protected lateinit var viewModel: BaseViewModel
+    protected lateinit var viewModel: M
 
     protected lateinit var viewModelFactory: ViewModelProvider.Factory
 
@@ -30,12 +30,11 @@ abstract class BaseActivity<T: ViewDataBinding, M: BaseViewModel>: AppCompatActi
         this.saveInstanceState = saveInstanceState
         binding = DataBindingUtil.setContentView(this, layoutRes())
         binding.lifecycleOwner = this
-        //val viewModelProvider = ViewModelProvider(this, viewModelFactory)
-        //viewModel = ViewModelProvider(this, viewModelFactory)[viewModelClass()]
-        //viewModel = BaseViewModel
+        viewModelFactory = ViewModelProvider.AndroidViewModelFactory.getInstance(application)
+        viewModel = ViewModelProvider(this, viewModelFactory)[viewModelClass()]
 
         initView()
-        //viewModel.viewState
+        viewModel.viewState
 
 
 

@@ -1,7 +1,5 @@
 package com.example.videoexoplayer.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import com.example.videoexoplayer.R
 import com.example.videoexoplayer.databinding.ActivityMainBinding
 import com.example.videoexoplayer.ui.base.BaseActivity
@@ -14,10 +12,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override fun handleViewState() {}
 
     override fun initView() {
-        val viewModel: MainViewModel = MainViewModel()
-        binding.viewModels = viewModel
+        binding.viewModel = viewModel
+        //content
 
-        binding.textview.text = "VinhTM"
+        viewModel.setContentText()
     }
 
 

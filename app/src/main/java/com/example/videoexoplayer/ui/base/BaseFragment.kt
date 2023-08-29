@@ -1,6 +1,7 @@
 package com.example.videoexoplayer.ui.base
 
 import android.app.Activity
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +18,7 @@ abstract class BaseFragment<T: ViewDataBinding, M: BaseViewModel>: Fragment(){
     protected lateinit var binding: T
     protected lateinit var viewModel: M
 
-    protected lateinit var viewMOdelFactory: ViewModelProvider.Factory
+    protected lateinit var viewModelFactory: ViewModelProvider.Factory
 
     @LayoutRes
     protected abstract fun layoutRes(): Int
@@ -33,7 +34,8 @@ abstract class BaseFragment<T: ViewDataBinding, M: BaseViewModel>: Fragment(){
     ): View? {
         binding = DataBindingUtil.inflate(inflater, layoutRes(), container, false)
         binding.lifecycleOwner = this
-        viewModel = ViewModelProvider(this, viewMOdelFactory)[viewModelClass()]
+        viewModelFactory = ViewModelProvider.AndroidViewModelFactory.getInstance(requireContext() as Application)
+        viewModel = ViewModelProvider(this, viewModelFactory)[viewModelClass()]
 
 
         return binding.root
