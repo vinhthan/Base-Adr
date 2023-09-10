@@ -1,10 +1,5 @@
-package com.example.videoexoplayer.ui.main.show
+package com.example.videoexoplayer.ui.allow.show
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.example.videoexoplayer.R
 import com.example.videoexoplayer.databinding.FragmentShowBinding
 import com.example.videoexoplayer.ui.base.BaseFragment

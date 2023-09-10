@@ -1,4 +1,4 @@
-package com.example.videoexoplayer.ui.main.show
+package com.example.videoexoplayer.ui.allow.show
 
 import com.example.videoexoplayer.ui.base.BaseViewModel
 

@@ -5,14 +5,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.videoexoplayer.ui.main.show.ShowViewModel" />
+            type="com.example.videoexoplayer.ui.allow.show.ShowViewModel" />
 
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.show.ShowFragment">
+        tools:context=".ui.allow.show.ShowFragment">
 
         <!-- TODO: Update blank fragment layout -->
         <TextView
