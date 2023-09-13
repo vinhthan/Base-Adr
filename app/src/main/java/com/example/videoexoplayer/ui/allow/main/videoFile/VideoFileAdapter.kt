@@ -1,6 +1,7 @@
 package com.example.videoexoplayer.ui.allow.main.videoFile
 
 import android.content.Intent
+import android.os.Bundle
 import android.text.format.Formatter
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.example.videoexoplayer.R
 import com.example.videoexoplayer.data.model.MediaFiles
 import com.example.videoexoplayer.ui.allow.main.videoFile.videoPlayer.VideoPlayerActivity
 import com.example.videoexoplayer.utils.timeConversion
+import java.util.ArrayList
 
 class VideoFileAdapter: RecyclerView.Adapter<VideoFileAdapter.VideoFileViewHolder>() {
     var listVideo = mutableListOf<MediaFiles>()
@@ -30,6 +32,16 @@ class VideoFileAdapter: RecyclerView.Adapter<VideoFileAdapter.VideoFileViewHolde
 
     override fun onBindViewHolder(holder: VideoFileViewHolder, position: Int) {
         holder.bind(listVideo[position])
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, VideoPlayerActivity::class.java)
+            intent.putExtra("position", position)
+            intent.putExtra("video_title", listVideo[position].displayName)
+            val bundle = Bundle()
+            bundle.putParcelableArrayList("videoArrayList", listVideo as ArrayList)
+            intent.putExtras(bundle)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     class VideoFileViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -46,11 +58,7 @@ class VideoFileAdapter: RecyclerView.Adapter<VideoFileAdapter.VideoFileViewHolde
             Glide.with(itemView.context).load(mediaFiles.path).into(imgThumbnail)
 
 
-            itemView.setOnClickListener {
-                val intent = Intent(itemView.context, VideoPlayerActivity::class.java)
 
-                itemView.context.startActivity(intent)
-            }
 
             imgMoreVideo.setOnClickListener {
                 Toast.makeText(itemView.context, "more", Toast.LENGTH_SHORT).show()

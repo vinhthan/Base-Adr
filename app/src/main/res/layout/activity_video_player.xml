@@ -4,13 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.example.videoexoplayer.ui.allow.main.videoFile.videoPlayer.VideoPlayerViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.allow.main.videoFile.videoPlayer.VideoPlayerActivity">
+
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/player_view"
+            android:background="@color/black"
+            app:hide_on_touch="true"
+            app:resize_mode="fit"
+            app:rewin_increment="10000"
+            app:fastforward_increment="10000"
+            app:use_controller="true"
+            app:show_timeout="4000"
+            app:surface_type="surface_view"
+            app:controller_layout_id="@layout/custom_playback_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
